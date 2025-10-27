@@ -1,12 +1,10 @@
-## YAML Template.
----
 services:
   - type: web
-    name: railway-docker-java
+    name: theory-docker
     env: docker
     plan: free
-    branch: main
     dockerfilePath: ./Dockerfile
+    autoDeploy: true
     envVars:
       - key: PORT
         value: 8080
