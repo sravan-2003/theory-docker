@@ -1,11 +1,13 @@
+# Use OpenJDK 17 as base
 FROM openjdk:17
 
+# Set working directory
 WORKDIR /app
 
-# Create folder structure inside the container
+# Create directory structure
 RUN mkdir -p adda/project/theory
 
-# Copy all Java source files into container
+# Copy all Java files into container
 COPY Main.java adda/project/theory/
 COPY Passenger.java adda/project/theory/
 COPY Payment.java adda/project/theory/
@@ -17,7 +19,7 @@ COPY Train.java adda/project/theory/
 # Compile all Java files
 RUN javac adda/project/theory/*.java
 
-# Command to run your main class
-CMD ["java", "adda.project.theory.Main", "RailwayDB", "3306"]
-EXPOSE 8080
+# Automatically run your main class
+CMD ["java", "adda.project.theory.Main"]
+
 

@@ -13,6 +13,9 @@ import java.util.Scanner;
  * @author srava
  */
 public class TicketClerk extends Main {
+
+    public TicketClerk(String sravan, String hyderabad) {
+    }
      String name;
     String location;
     List<Ticket> managedTickets = new ArrayList<>();

@@ -11,45 +11,19 @@ import java.util.Scanner;
  * @author srava
  */
 public class Passenger extends Main {
-    String name;
-    String address;
+     private String name;
+    private String address;
 
-    public void enterDetails() {
-        Scanner sc = new Scanner(System.in);
-        System.out.print("Enter Passenger Name: ");
-        name = sc.nextLine();
-        System.out.print("Enter Passenger Address: ");
-        address = sc.nextLine();
+    public Passenger(String name, String address) {
+        this.name = name;
+        this.address = address;
     }
 
-    public void searchTrains() {
-        System.out.println(name + " is searching available trains...");
+    public String getName() {
+        return name;
     }
 
-    public void viewSchedule() {
-        System.out.println(name + " is viewing the train schedule...");
-    }
-
-    public void reserveSeat() {
-        System.out.println(name + " reserved a seat successfully.");
-    }
-
-    public void purchaseTicket() {
-        System.out.println(name + " purchased a ticket successfully.");
-    }
-
-    public void cancelTicket() {
-        System.out.println(name + " cancelled a ticket successfully.");
-    }
-
-    public void makePayment(double amount) {
-        Payment p = new Payment();
-        p.processPayment(amount);
-    }
-
-    public void showPassengerInfo() {
-        System.out.println("\n--- Passenger Info ---");
-        System.out.println("Name: " + name);
-        System.out.println("Address: " + address);
+    public String getAddress() {
+        return address;
     }
 }

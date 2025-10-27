@@ -11,24 +11,19 @@ import java.util.Scanner;
  * @author srava
  */
 public class Train extends Main {
-    String model;
-    int trainId;
+    private String trainId;
+    private String model;
 
-    public void inputTrainDetails() {
-        Scanner sc = new Scanner(System.in);
-        System.out.print("Enter Train Model: ");
-        model = sc.nextLine();
-        System.out.print("Enter Train ID: ");
-        trainId = sc.nextInt();
+    public Train(String trainId, String model) {
+        this.trainId = trainId;
+        this.model = model;
     }
 
-    public void showTrainInfo() {
-        System.out.println("\n--- Train Information ---");
-        System.out.println("Train ID: " + trainId);
-        System.out.println("Model: " + model);
+    public String getTrainId() {
+        return trainId;
     }
 
-    public void viewSchedule() {
-        System.out.println("Train " + trainId + " (" + model + ") schedule displayed.");
+    public String getModel() {
+        return model;
     }
 }

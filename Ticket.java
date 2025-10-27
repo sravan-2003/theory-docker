@@ -12,41 +12,36 @@ import java.util.Scanner;
  */
 public class Ticket extends Main {
      int ticketNo;
-    String startingLocation;
-    String destinationLocation;
-    int passengerNo;
-    double paymentAmount;
+    private String from;
+    private String to;
+    private int passengerNo;
+    private double amount;
 
-    public void enterTicketDetails() {
-        Scanner sc = new Scanner(System.in);
-        System.out.print("Enter Ticket No: ");
-        ticketNo = sc.nextInt();
-        sc.nextLine();
-        System.out.print("Enter Starting Location: ");
-        startingLocation = sc.nextLine();
-        System.out.print("Enter Destination Location: ");
-        destinationLocation = sc.nextLine();
-        System.out.print("Enter Passenger No: ");
-        passengerNo = sc.nextInt();
+    public Ticket(int ticketNo, String from, String to, int passengerNo, double amount) {
+        this.ticketNo = ticketNo;
+        this.from = from;
+        this.to = to;
+        this.passengerNo = passengerNo;
+        this.amount = amount;
     }
 
-    public void paymentAmount() {
-        Scanner sc = new Scanner(System.in);
-        System.out.print("Enter Payment Amount (₹): ");
-        paymentAmount = sc.nextDouble();
-        System.out.println("Payment Recorded: ₹" + paymentAmount);
+    public int getTicketNo() {
+        return ticketNo;
     }
 
-    public void cancelTicket() {
-        System.out.println("Ticket " + ticketNo + " has been cancelled successfully.");
+    public String getFrom() {
+        return from;
     }
 
-    public void showTicketDetails() {
-        System.out.println("\n--- Ticket Details ---");
-        System.out.println("Ticket No: " + ticketNo);
-        System.out.println("From: " + startingLocation);
-        System.out.println("To: " + destinationLocation);
-        System.out.println("Passenger No: " + passengerNo);
-        System.out.println("Amount: ₹" + paymentAmount);
+    public String getTo() {
+        return to;
+    }
+
+    public int getPassengerNo() {
+        return passengerNo;
+    }
+
+    public double getAmount() {
+        return amount;
     }
 }

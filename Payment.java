@@ -11,22 +11,25 @@ import java.util.Scanner;
  * @author srava
  */
 public class Payment extends Main {
-    double amount;
+    private double amount;
+    private String mode;
+    private String status;
 
-    public void processPayment(double amt) {
-        amount = amt;
-        System.out.println("Processing payment of ₹" + amount + "...");
-        System.out.println("Payment successful!");
+    public Payment(double amount, String mode, String status) {
+        this.amount = amount;
+        this.mode = mode;
+        this.status = status;
     }
 
-    public void inputAmount() {
-        Scanner sc = new Scanner(System.in);
-        System.out.print("Enter Payment Amount (₹): ");
-        amount = sc.nextDouble();
-        System.out.println("Payment Recorded: ₹" + amount);
+    public double getAmount() {
+        return amount;
     }
 
-    public void showPayment() {
-        System.out.println("Payment Amount: ₹" + amount);
+    public String getMode() {
+        return mode;
+    }
+
+    public String getStatus() {
+        return status;
     }
 }

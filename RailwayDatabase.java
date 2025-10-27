@@ -4,6 +4,7 @@
  */
 package adda.project.theory;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
@@ -13,40 +14,36 @@ import java.util.Scanner;
  * @author srava
  */
 public class RailwayDatabase extends Main {
-    int id;
-    String response;
-    Map<Integer, Ticket> storedTickets = new HashMap<>();
+    private int databaseId;
+    private String responseMessage;
+    private ArrayList<Ticket> tickets;
 
-    public void inputDatabaseInfo() {
-        Scanner sc = new Scanner(System.in);
-        System.out.print("Enter Database ID: ");
-        id = sc.nextInt();
-        sc.nextLine();
-        System.out.print("Enter Response Message: ");
-        response = sc.nextLine();
-        System.out.println("Database initialized successfully.\n");
+    public RailwayDatabase(int databaseId, String responseMessage) {
+        this.databaseId = databaseId;
+        this.responseMessage = responseMessage;
+        this.tickets = new ArrayList<>();
     }
 
-    public void addTicket(Ticket t) {
-        storedTickets.put(t.ticketNo, t);
-        System.out.println("Ticket " + t.ticketNo + " added to Railway Database.");
+    public void addTicket(Ticket ticket) {
+        tickets.add(ticket);
     }
 
-    public void showAllTickets() {
-        System.out.println("\n--- Railway Database Records ---");
-        if (storedTickets.isEmpty()) {
-            System.out.println("No records found.");
-        } else {
-            for (Ticket t : storedTickets.values()) {
-                t.showTicketDetails();
-            }
+    public void showDatabaseRecords() {
+        System.out.println("--- Railway Database Records ---");
+
+        System.out.println("\n--- Ticket Details ---");
+        for (Ticket t : tickets) {
+            System.out.println("Ticket No: " + t.getTicketNo());
+            System.out.println("From: " + t.getFrom());
+            System.out.println("To: " + t.getTo());
+            System.out.println("Passenger No: " + t.getPassengerNo());
+            System.out.println("Amount: ₹" + t.getAmount());
+            System.out.println();
         }
-    }
 
-    public void showDatabaseInfo() {
-        System.out.println("\n--- Railway Database Info ---");
-        System.out.println("Database ID: " + id);
-        System.out.println("Response: " + response);
-        System.out.println("Total Tickets Stored: " + storedTickets.size());
+        System.out.println("--- Railway Database Info ---");
+        System.out.println("Database ID: " + databaseId);
+        System.out.println("Response: " + responseMessage);
+        System.out.println("Total Tickets Stored: " + tickets.size());
     }
 }
