@@ -1,0 +1,12 @@
+## YAML Template.
+---
+services:
+  - type: web
+    name: railway-docker-java
+    env: docker
+    plan: free
+    branch: main
+    dockerfilePath: ./Dockerfile
+    envVars:
+      - key: PORT
+        value: 8080
